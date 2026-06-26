@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Szakértői Vállalkozás Akadémia</title>
+<meta name="description" content="4 hetes online coaching program szakértőknek. Kiszámítható ügyfélszerzés, magabiztos értékesítés. 100% garancia." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- Geist közel ekvivalense: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --color-link-blue:       #0070f3;
+    --color-muted-ink:       #666666;
+    --color-soft-rule:       #cccccc;
+    --color-primary-ink:     #0a0a0a;
+    --color-site-canvas:     #fafafa;
+    --color-solid-black:     #000000;
+    --color-error-signal:    #ef4444;
+    --color-divider-smoke:   #eaeaea;
+    --color-secondary-ink:   #333333;
+    --color-lifted-surface:  #f5f5f5;
+
+    --font-sans: "Inter", "Geist", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --text-caption:      12px;
+    --text-body-sm:      13px;
+    --text-body:         14px;
+    --text-body-lg:      16px;
+    --text-heading-sm:   20px;
+    --text-heading:      24px;
+    --text-heading-lg:   32px;
+    --text-display-sm:   48px;
+    --text-display:      64px;
+
+    --spacing-2:   2px;
+    --spacing-4:   4px;
+    --spacing-6:   6px;
+    --spacing-8:   8px;
+    --spacing-12:  12px;
+    --spacing-16:  16px;
+    --spacing-20:  20px;
+    --spacing-24:  24px;
+    --spacing-32:  32px;
+    --spacing-40:  40px;
+    --spacing-48:  48px;
+    --spacing-64:  64px;
+    --spacing-80:  80px;
+    --spacing-96:  96px;
+
+    --radius-cards:   12px;
+    --radius-buttons: 9999px;
+    --radius-small:   4px;
+    --radius-medium:  8px;
+    --radius-badges:  4px;
+
+    --shadow-menu:          0 8px 32px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-border-small:  0 0 0 1px rgba(0,0,0,0.08);
+    --shadow-scrolled:      0 1px 0 0 rgba(0,0,0,0.08);
+
+    --ease-std:   cubic-bezier(0.2, 0, 0, 1);
+    --dur-std:    150ms;
+    --dur-panel:  200ms;
+
+    --page-max:    1496px;
+    --section-gap: 96px;
+    --card-pad:    28px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.43;
+    letter-spacing: -0.02em;
+    color: var(--color-primary-ink);
+    background: var(--color-site-canvas);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  h1, h2, h3, h4 { margin: 0; font-weight: 400; }
+  p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: var(--page-max);
+    margin-inline: auto;
+    padding-inline: var(--spacing-24);
+  }
+
+  /* ── Eyebrow label ── */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    color: var(--color-muted-ink);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-6);
+  }
+  .eyebrow-dot {
+    width: 6px; height: 6px;
+    background: var(--color-solid-black);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── Buttons ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    padding: 12px 24px;
+    border-radius: var(--radius-buttons);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: opacity var(--dur-std) var(--ease-std),
+                background var(--dur-std) var(--ease-std),
+                transform var(--dur-std) var(--ease-std);
+    text-decoration: none;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary {
+    background: var(--color-solid-black);
+    color: #fff;
+    border-color: var(--color-solid-black);
+  }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-primary-ink);
+    border-color: var(--color-divider-smoke);
+  }
+  .btn-ghost:hover { background: var(--color-lifted-surface); }
+
+  /* ── Nav ── */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250,250,250,0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    height: 64px;
+    display: flex; align-items: center;
+    box-shadow: var(--shadow-scrolled);
+  }
+  .nav-inner {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--page-max);
+    margin-inline: auto;
+    padding-inline: var(--spacing-24);
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 600; font-size: var(--text-body);
+    letter-spacing: -0.02em;
+  }
+  /* Triangle logomark */
+  .triangle {
+    width: 0; height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 14px solid var(--color-solid-black);
+    flex-shrink: 0;
+  }
+  .nav-links { display: flex; align-items: center; gap: var(--spacing-4); }
+  .nav-link {
+    font-size: var(--text-body);
+    color: var(--color-muted-ink);
+    padding: 6px 12px;
+    border-radius: var(--radius-buttons);
+    transition: color var(--dur-std) var(--ease-std),
+                background var(--dur-std) var(--ease-std);
+  }
+  .nav-link:hover { color: var(--color-primary-ink); background: var(--color-lifted-surface); }
+  @media (max-width: 768px) { .nav-links { display: none; } }
+
+  /* ── Sections ── */
+  section { padding-block: var(--section-gap); }
+
+  /* ── Section header ── */
+  .sh { max-width: 640px; margin-bottom: var(--spacing-48); }
+  .sh h2 {
+    font-size: clamp(32px, 4vw, var(--text-display-sm));
+    font-weight: 400;
+    line-height: 1.17;
+    letter-spacing: -0.06em;
+    margin-top: var(--spacing-16);
+    color: var(--color-primary-ink);
+  }
+  .sh p {
+    margin-top: var(--spacing-16);
+    font-size: var(--text-body-lg);
+    line-height: 1.5;
+    color: var(--color-muted-ink);
+    max-width: 52ch;
+  }
+
+  /* ── Card ── */
+  .card {
+    background: var(--color-lifted-surface);
+    border-radius: var(--radius-cards);
+    padding: var(--card-pad);
+    box-shadow: var(--shadow-border-small);
+  }
+
+  /* ══════════════════════════════════
+     1. HERO
+  ══════════════════════════════════ */
+  .hero {
+    padding-top: var(--spacing-96);
+    padding-bottom: var(--spacing-96);
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    color: var(--color-muted-ink);
+    background: var(--color-lifted-surface);
+    border: 1px solid var(--color-divider-smoke);
+    padding: 6px 14px;
+    border-radius: var(--radius-buttons);
+    margin-bottom: var(--spacing-32);
+  }
+  .hero h1 {
+    font-size: clamp(40px, 7vw, var(--text-display));
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.06em;
+    max-width: 14ch;
+    margin-inline: auto;
+    color: var(--color-primary-ink);
+  }
+  .hero p.sub {
+    margin-top: var(--spacing-24);
+    font-size: var(--text-body-lg);
+    line-height: 1.6;
+    color: var(--color-muted-ink);
+    max-width: 46ch;
+    margin-inline: auto;
+  }
+  .hero-cta {
+    margin-top: var(--spacing-40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-16);
+    flex-wrap: wrap;
+  }
+  .hero-proof {
+    margin-top: var(--spacing-48);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-24);
+    flex-wrap: wrap;
+  }
+  .proof-item {
+    display: flex; align-items: center; gap: var(--spacing-8);
+    font-size: var(--text-body-sm);
+    color: var(--color-muted-ink);
+  }
+  .proof-item svg { flex-shrink: 0; }
+
+  /* Triangle hero visual */
+  .hero-visual {
+    margin-top: var(--spacing-64);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 280px;
+    overflow: hidden;
+  }
+  .tri-glow {
+    position: absolute;
+    width: 500px; height: 500px;
+    background: radial-gradient(ellipse at center,
+      rgba(0,0,0,0.04) 0%,
+      rgba(0,0,0,0.02) 40%,
+      transparent 70%);
+    border-radius: 50%;
+  }
+  .tri-big {
+    width: 0; height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 174px solid var(--color-solid-black);
+    position: relative; z-index: 1;
+    filter: drop-shadow(0 24px 48px rgba(0,0,0,0.12));
+  }
+  .metric-card {
+    position: absolute;
+    background: #fff;
+    border-radius: var(--radius-medium);
+    padding: 14px 18px;
+    box-shadow: var(--shadow-menu);
+    font-size: var(--text-body-sm);
+    white-space: nowrap;
+  }
+  .metric-card .val {
+    font-size: var(--text-heading);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--color-primary-ink);
+  }
+  .metric-card .lbl {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    color: var(--color-muted-ink);
+    margin-top: 4px;
+  }
+  .mc-left  { left:  calc(50% - 280px); top: 40px; }
+  .mc-right { right: calc(50% - 280px); top: 60px; }
+  .mc-bot   { bottom: 20px; left: 50%; transform: translateX(-50%); }
+  @media (max-width: 768px) {
+    .hero-visual { display: none; }
+  }
+
+  /* ══════════════════════════════════
+     2. TRUST
+  ══════════════════════════════════ */
+  .trust {
+    border-block: 1px solid var(--color-divider-smoke);
+    padding-block: var(--spacing-40);
+  }
+  .trust-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-48);
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .trust-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+    color: var(--color-muted-ink);
+    flex-shrink: 0;
+  }
+  .logos {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-40);
+    flex-wrap: wrap;
+  }
+  .logo-mark {
+    font-family: var(--font-sans);
+    font-size: var(--text-body-lg);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    color: var(--color-primary-ink);
+    opacity: 0.35;
+  }
+
+  /* ══════════════════════════════════
+     3. ABOUT
+  ══════════════════════════════════ */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-64);
+    align-items: center;
+  }
+  @media (max-width: 960px) {
+    .about-grid { grid-template-columns: 1fr; gap: var(--spacing-40); }
+  }
+  .portrait {
+    aspect-ratio: 3 / 4;
+    border-radius: var(--radius-cards);
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(0,0,0,0.04) 0%, transparent 60%),
+      var(--color-lifted-surface);
+    box-shadow: var(--shadow-border-small);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: var(--spacing-24);
+  }
+  .portrait-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+    color: var(--color-muted-ink);
+    background: #fff;
+    border-radius: var(--radius-small);
+    padding: 6px 10px;
+    box-shadow: var(--shadow-border-small);
+  }
+  .about-text h2 {
+    font-size: clamp(28px, 3.5vw, var(--text-heading-lg));
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.25;
+    margin-top: var(--spacing-16);
+    color: var(--color-primary-ink);
+  }
+  .about-text p {
+    margin-top: var(--spacing-16);
+    font-size: var(--text-body-lg);
+    line-height: 1.6;
+    color: var(--color-muted-ink);
+    max-width: 52ch;
+  }
+
+  /* ══════════════════════════════════
+     4. TESTIMONIALS
+  ══════════════════════════════════ */
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-16);
+  }
+  @media (max-width: 960px) { .testi-grid { grid-template-columns: 1fr; } }
+
+  .testi .who {
+    display: flex; align-items: center; gap: var(--spacing-12);
+    margin-bottom: var(--spacing-20);
+  }
+  .avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--color-divider-smoke);
+    box-shadow: var(--shadow-border-small);
+    flex-shrink: 0;
+  }
+  .testi .name { font-weight: 600; font-size: var(--text-body); letter-spacing: -0.02em; }
+  .testi .role {
+    font-family: var(--font-mono);
+    font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.075em;
+    color: var(--color-muted-ink);
+  }
+  .testi q {
+    font-size: var(--text-body-lg);
+    line-height: 1.6;
+    color: var(--color-secondary-ink);
+    quotes: none;
+  }
+  .testi q::before, .testi q::after { content: none; }
+  .stat {
+    margin-top: var(--spacing-20);
+    font-size: var(--text-heading-lg);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    color: var(--color-primary-ink);
+  }
+  .stat span { font-size: var(--text-body-sm); font-weight: 400; color: var(--color-muted-ink); letter-spacing: 0; margin-left: 6px; }
+
+  /* ══════════════════════════════════
+     5. PROGRAM
+  ══════════════════════════════════ */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-16);
+  }
+  @media (max-width: 768px) { .steps-grid { grid-template-columns: 1fr; } }
+
+  .step {
+    background: var(--color-lifted-surface);
+    border-radius: var(--radius-cards);
+    padding: var(--card-pad);
+    box-shadow: var(--shadow-border-small);
+  }
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.075em; text-transform: uppercase;
+    color: var(--color-muted-ink);
+  }
+  .step h3 {
+    font-size: var(--text-heading-sm);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    margin-top: var(--spacing-16);
+    color: var(--color-primary-ink);
+  }
+  .step p {
+    margin-top: var(--spacing-12);
+    font-size: var(--text-body-lg);
+    line-height: 1.6;
+    color: var(--color-muted-ink);
+  }
+
+  /* ══════════════════════════════════
+     6. BONUSES
+  ══════════════════════════════════ */
+  .bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-16);
+  }
+  @media (max-width: 768px) { .bonus-grid { grid-template-columns: 1fr; } }
+
+  .bonus {
+    display: flex;
+    gap: var(--spacing-16);
+    background: var(--color-lifted-surface);
+    border-radius: var(--radius-cards);
+    padding: var(--card-pad);
+    box-shadow: var(--shadow-border-small);
+    align-items: flex-start;
+  }
+  .bonus-icon {
+    width: 36px; height: 36px;
+    background: var(--color-solid-black);
+    border-radius: var(--radius-medium);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: #fff;
+    font-size: 16px;
+    font-family: var(--font-mono);
+  }
+  .bonus h4 { font-size: var(--text-heading-sm); font-weight: 600; letter-spacing: -0.02em; color: var(--color-primary-ink); }
+  .bonus p  { margin-top: 6px; font-size: var(--text-body); color: var(--color-muted-ink); line-height: 1.5; }
+
+  /* ══════════════════════════════════
+     7. PRICING
+  ══════════════════════════════════ */
+  .price-wrap { max-width: 520px; margin-inline: auto; }
+  .price-card {
+    background: var(--color-lifted-surface);
+    border-radius: var(--radius-cards);
+    overflow: hidden;
+    box-shadow: var(--shadow-menu);
+  }
+  .price-head {
+    padding: var(--spacing-24) var(--card-pad);
+    border-bottom: 1px solid var(--color-divider-smoke);
+  }
+  .tier-label {
+    font-family: var(--font-mono);
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.075em;
+    color: var(--color-muted-ink);
+  }
+  .tier-name {
+    font-size: var(--text-heading-lg);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.25;
+    margin-top: 8px;
+    color: var(--color-primary-ink);
+  }
+  .price-body { padding: var(--card-pad); }
+  .price-row {
+    display: flex; align-items: center; gap: var(--spacing-12);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-divider-smoke);
+    font-size: var(--text-body-lg);
+    color: var(--color-secondary-ink);
+  }
+  .price-row:last-child { border-bottom: none; }
+  .check-icon {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--color-solid-black);
+    display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: #fff;
+    font-size: 11px;
+  }
+  .price-amount {
+    display: flex; align-items: baseline; gap: var(--spacing-8);
+    margin-bottom: var(--spacing-24);
+  }
+  .price-num {
+    font-size: var(--text-display);
+    font-weight: 400;
+    letter-spacing: -0.06em;
+    line-height: 1;
+    color: var(--color-primary-ink);
+  }
+  .price-cur {
+    font-size: var(--text-heading-sm);
+    color: var(--color-muted-ink);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+  .guarantee {
+    margin-top: var(--spacing-24);
+    padding: var(--spacing-16);
+    background: #fff;
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-border-small);
+    font-size: var(--text-body-sm);
+    color: var(--color-muted-ink);
+    line-height: 1.5;
+  }
+  .guarantee strong { color: var(--color-primary-ink); font-weight: 600; }
+  .price-cta { margin-top: var(--spacing-24); display: flex; }
+  .price-cta .btn { width: 100%; justify-content: center; font-size: var(--text-body-lg); padding: 16px 24px; }
+
+  /* ══════════════════════════════════
+     8. FINAL CTA
+  ══════════════════════════════════ */
+  .final {
+    background: var(--color-solid-black);
+    padding-block: var(--section-gap);
+  }
+  .final-inner { text-align: center; }
+  .final h2 {
+    font-size: clamp(36px, 5vw, var(--text-display-sm));
+    font-weight: 400;
+    letter-spacing: -0.06em;
+    line-height: 1.1;
+    color: #fff;
+    max-width: 20ch;
+    margin-inline: auto;
+  }
+  .final p {
+    margin-top: var(--spacing-24);
+    font-size: var(--text-body-lg);
+    line-height: 1.6;
+    color: rgba(255,255,255,0.55);
+    max-width: 46ch;
+    margin-inline: auto;
+  }
+  .final .btn-final {
+    margin-top: var(--spacing-40);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    font-family: var(--font-sans);
+    font-size: var(--text-body-lg);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    padding: 16px 32px;
+    background: #fff;
+    color: var(--color-solid-black);
+    border: none;
+    border-radius: var(--radius-buttons);
+    cursor: pointer;
+    transition: opacity var(--dur-std) var(--ease-std),
+                transform var(--dur-std) var(--ease-std);
+    text-decoration: none;
+  }
+  .final .btn-final:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  /* ══════════════════════════════════
+     FOOTER
+  ══════════════════════════════════ */
+  footer {
+    border-top: 1px solid var(--color-divider-smoke);
+    padding-block: var(--spacing-40);
+  }
+  .foot-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-24);
+    flex-wrap: wrap;
+  }
+  .foot-inner .muted { font-size: var(--text-body-sm); color: var(--color-muted-ink); }
+  .foot-links { display: flex; gap: var(--spacing-4); }
+  .foot-link {
+    font-size: var(--text-body-sm);
+    color: var(--color-muted-ink);
+    padding: 4px 10px;
+    border-radius: var(--radius-buttons);
+    transition: color var(--dur-std) var(--ease-std), background var(--dur-std) var(--ease-std);
+  }
+  .foot-link:hover { color: var(--color-primary-ink); background: var(--color-lifted-surface); }
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<header>
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="triangle" aria-hidden="true"></span>
+      Szakértői Akadémia
+    </a>
+    <nav class="nav-links">
+      <a class="nav-link" href="#program">Program</a>
+      <a class="nav-link" href="#sikerek">Sikerek</a>
+      <a class="nav-link" href="#bonuszok">Bónuszok</a>
+      <a class="nav-link" href="#arazas">Árazás</a>
+      <a class="btn btn-primary" href="#arazas" style="padding:8px 20px;font-size:13px;">Jelentkezem</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ══════════ 1. HERO ══════════ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-badge" aria-hidden="true">
+        <span class="eyebrow-dot"></span>
+        4 hetes online coaching program
+      </div>
+      <h1>Építsd fel a vágyott szakértői vállalkozásod</h1>
+      <p class="sub">
+        Strukturált rendszer coachoknak, trénereknek és tanácsadóknak — az első ügyféltől
+        a kiszámítható bevételig. Kapkodás nélkül.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#arazas">
+          Jelentkezem most
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2.5 7h9M8 4l3.5 3L8 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a class="btn btn-ghost" href="#program">Megnézem a programot</a>
+      </div>
+      <div class="hero-proof">
+        <span class="proof-item">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="6" stroke="#000" stroke-width="1.2"/>
+            <path d="M4 7l2 2 4-4" stroke="#000" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          100% elégedettségi garancia
+        </span>
+        <span class="proof-item">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="6" stroke="#000" stroke-width="1.2"/>
+            <path d="M4 7l2 2 4-4" stroke="#000" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Lépésről lépésre
+        </span>
+        <span class="proof-item">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="6" stroke="#000" stroke-width="1.2"/>
+            <path d="M4 7l2 2 4-4" stroke="#000" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Zárt közösségi támogatás
+        </span>
+      </div>
+
+      <!-- Visual -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="tri-glow"></div>
+        <div class="tri-big"></div>
+        <div class="metric-card mc-left">
+          <div class="val">+38%</div>
+          <div class="lbl">bevétel / hó</div>
+        </div>
+        <div class="metric-card mc-right">
+          <div class="val">12</div>
+          <div class="lbl">aktív ügyfél</div>
+        </div>
+        <div class="metric-card mc-bot">
+          <div class="lbl" style="text-align:center;">első ügyfél · 3 hét</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 2. TRUST ══════════ -->
+  <div class="trust">
+    <div class="wrap">
+      <div class="trust-inner">
+        <span class="trust-label">Megjelent az alábbi helyeken</span>
+        <div class="logos">
+          <span class="logo-mark">Forbes HU</span>
+          <span class="logo-mark">Startlap</span>
+          <span class="logo-mark">Marketing Hub</span>
+          <span class="logo-mark">Podcast Now</span>
+          <span class="logo-mark">Üzlet&Siker</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ 3. ABOUT ══════════ -->
+  <section id="rolam">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="portrait">
+          <span class="portrait-tag">Anna · alapító &amp; coach</span>
+        </div>
+        <div class="about-text">
+          <span class="eyebrow"><span class="eyebrow-dot"></span>Személyes sztori</span>
+          <h2>Én is pontosan ott voltam, ahol te most.</h2>
+          <p>
+            Évekig dolgoztam keményen, mégis ötletszerűen jöttek az ügyfelek. Tudtam,
+            hogy értek ahhoz, amit csinálok — de a vállalkozás építése egészen más
+            tudás. Túl sok eszköz, túl sok tanács, túl kevés rendszer.
+          </p>
+          <p>
+            Amikor végre struktúrát adtam a folyamatnak, minden megváltozott. Ma ezt a
+            rendszert tanítom — nincs benne varázslat, csak tiszta, ismételhető lépések,
+            amiket te is végig tudsz csinálni.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 4. TESTIMONIALS ══════════ -->
+  <section id="sikerek" style="background:var(--color-lifted-surface);">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Ügyfélsikerek</span>
+        <h2>Valódi emberek, valódi eredmények</h2>
+        <p>Különböző háttérrel indultak. Közös bennük a rendszer.</p>
+      </div>
+      <div class="testi-grid">
+
+        <div class="card testi">
+          <div class="who">
+            <span class="avatar"></span>
+            <span>
+              <span class="name" style="display:block;">Kata</span>
+              <span class="role">életmód coach</span>
+            </span>
+          </div>
+          <q>3 hónap alatt elértem az első 10 fizető ügyfelemet — végre kiszámítható, honnan jönnek.</q>
+          <div class="stat">10 <span>ügyfél / 3 hó</span></div>
+        </div>
+
+        <div class="card testi">
+          <div class="who">
+            <span class="avatar" style="background:var(--color-primary-ink);"></span>
+            <span>
+              <span class="name" style="display:block;">Péter</span>
+              <span class="role">online tréner</span>
+            </span>
+          </div>
+          <q>Végre magabiztosan adok el tréningeket online. Nem érzem többé tolakodónak az értékesítést.</q>
+          <div class="stat">2× <span>bevétel fél év alatt</span></div>
+        </div>
+
+        <div class="card testi">
+          <div class="who">
+            <span class="avatar" style="background:var(--color-secondary-ink);"></span>
+            <span>
+              <span class="name" style="display:block;">Réka</span>
+              <span class="role">HR tanácsadó</span>
+            </span>
+          </div>
+          <q>A struktúra mindent megváltoztatott. Tudom, mit csinálok hétfőn reggel — nincs több kapkodás.</q>
+          <div class="stat">4 hét <span>a kész stratégiáig</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 5. PROGRAM ══════════ -->
+  <section id="program">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Mit kapsz pontosan</span>
+        <h2>A program, lépésről lépésre</h2>
+        <p>Négy hét, négy fókusz, négy kézzelfogható eredmény.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">01 — Program</div>
+          <h3>4 hetes online coaching program</h3>
+          <p>Heti élő alkalmak és felvételek, amelyek végigvezetnek a teljes folyamaton — a pozícionálástól az első ügyfélig.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02 — Stratégia</div>
+          <h3>Személyre szabott stratégia</h3>
+          <p>A te szakterületedre, célközönségedre és kapacitásodra szabott terv — nem sablon, hanem rád szabott útvonal.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03 — Közösség</div>
+          <h3>Zárt közösségi támogatás</h3>
+          <p>Zárt csoport hasonló úton járó szakértőkkel. Kérdezel, visszajelzést kapsz — nem maradsz egyedül.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04 — Anyagok</div>
+          <h3>Letölthető munkafüzetek</h3>
+          <p>Sablonok, ellenőrzőlisták és gyakorlati füzetek — minden héten egyet kapsz, azonnal alkalmazható.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 6. BONUSES ══════════ -->
+  <section id="bonuszok" style="background:var(--color-lifted-surface);">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Extra érték — csak most</span>
+        <h2>Bónuszok, amik felgyorsítanak</h2>
+        <p>Plusz költség nélkül jár a programhoz.</p>
+      </div>
+      <div class="bonus-grid">
+        <div class="bonus">
+          <div class="bonus-icon">▤</div>
+          <div>
+            <h4>Exkluzív sabloncsomag</h4>
+            <p>Ajánlatok, landoló oldalak és onboarding sablonok, készen a használatra.</p>
+          </div>
+        </div>
+        <div class="bonus">
+          <div class="bonus-icon">◉</div>
+          <div>
+            <h4>Zárt Q&amp;A csoport</h4>
+            <p>Havi élő kérdezz-felelek, ahol a saját helyzetedre kapsz választ.</p>
+          </div>
+        </div>
+        <div class="bonus">
+          <div class="bonus-icon">▶</div>
+          <div>
+            <h4>Mini-videók letöltése</h4>
+            <p>Rövid, fókuszált leckék, amiket bármikor újranézhetsz — offline is.</p>
+          </div>
+        </div>
+        <div class="bonus">
+          <div class="bonus-icon">✉</div>
+          <div>
+            <h4>Előregyártott email-szövegek</h4>
+            <p>Bevált értékesítési és követő e-mailek, amiket csak személyre szabsz.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 7. PRICING ══════════ -->
+  <section id="arazas">
+    <div class="wrap">
+      <div class="sh" style="margin-inline:auto;text-align:center;max-width:none;">
+        <span class="eyebrow"><span class="eyebrow-dot"></span>Árazás &amp; garancia</span>
+        <h2>Egy ár. Nulla kockázat.</h2>
+      </div>
+      <div class="price-wrap">
+        <div class="price-card">
+          <div class="price-head">
+            <div class="tier-label">Szakértői Akadémia</div>
+            <div class="tier-name">Teljes program</div>
+          </div>
+          <div class="price-body">
+            <div class="price-amount">
+              <span class="price-num">79 000</span>
+              <span class="price-cur">Ft / egyszeri</span>
+            </div>
+            <div>
+              <div class="price-row">
+                <span class="check-icon">✓</span>
+                4 hetes online coaching program
+              </div>
+              <div class="price-row">
+                <span class="check-icon">✓</span>
+                Személyre szabott stratégia
+              </div>
+              <div class="price-row">
+                <span class="check-icon">✓</span>
+                Zárt közösség &amp; havi Q&amp;A
+              </div>
+              <div class="price-row">
+                <span class="check-icon">✓</span>
+                Összes bónusz és munkafüzet
+              </div>
+            </div>
+            <div class="guarantee">
+              <strong>100% elégedettségi garancia.</strong> Ha az első 14 napban úgy érzed,
+              nem neked való, visszafizetjük a teljes árat. Kérdés nélkül.
+            </div>
+            <div class="price-cta">
+              <a class="btn btn-primary" href="#top">
+                Jelentkezem most
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2.5 7h9M8 4l3.5 3L8 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 8. FINAL CTA ══════════ -->
+  <section class="final">
+    <div class="wrap">
+      <div class="final-inner">
+        <h2>Mi lenne, ha egyetlen ötlet már holnap meghozná az első sikered?</h2>
+        <p>Nincs veszítenivalód. A garancia rád, nem rád hárul. Egyetlen döntés választ el attól a vállalkozástól, amit eddig csak terveztél.</p>
+        <a class="btn-final" href="#arazas">
+          Jelentkezem most
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2.5 7h9M8 4l3.5 3L8 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="wrap foot-inner">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span class="triangle" aria-hidden="true"></span>
+      <span class="muted">© 2026 Szakértői Akadémia</span>
+    </div>
+    <div class="foot-links">
+      <a class="foot-link" href="#program">Program</a>
+      <a class="foot-link" href="#arazas">Árazás</a>
+      <a class="foot-link" href="mailto:hello@expertflow.hu">Kapcsolat</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
