@@ -1,0 +1,62 @@
+:root {
+  /* Színek — a repó landing-tokenrendszeréből adaptálva */
+  --color-bg: #ffffff;
+  --color-surface: #f5f6f8;
+  --color-surface-2: #eceef1;
+  --color-border: #e2e4e8;
+  --color-ink: #0d0d0d;
+  --color-ink-soft: #4d4d4d;
+  --color-ink-faint: #8a8f98;
+  --color-accent: #8a05ff;
+  --color-accent-soft: #e7dbff;
+  --color-positive: #006d4c;
+  --color-positive-soft: #d9f0e7;
+  --color-warning: #b45309;
+  --color-warning-soft: #fef3c7;
+  --color-danger: #b91c1c;
+  --color-danger-soft: #fee2e2;
+
+  --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --text-caption: 12px;
+  --text-body-sm: 14px;
+  --text-body: 16px;
+  --text-heading-sm: 20px;
+  --text-heading: 28px;
+  --text-display: 40px;
+
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+
+  --radius: 8px;
+  --radius-sm: 5px;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --content-max: 1100px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #101114;
+    --color-surface: #1a1c20;
+    --color-surface-2: #232529;
+    --color-border: #2e3136;
+    --color-ink: #f2f3f5;
+    --color-ink-soft: #b6bac1;
+    --color-ink-faint: #7d838c;
+    --color-accent: #b57bff;
+    --color-accent-soft: #322450;
+    --color-positive: #34d39b;
+    --color-positive-soft: #12352a;
+    --color-warning: #f5a94b;
+    --color-warning-soft: #3a2b12;
+    --color-danger: #f87171;
+    --color-danger-soft: #3d1a1a;
+    --shadow-card: none;
+  }
+}
